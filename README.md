@@ -3,6 +3,14 @@
 Easily add staggered animations to your `ListView`, `GridView`, `Column` and `Row` children as shown in [Material Design guidelines](https://material.io/design/motion/customization.html#sequencing).
 
 A modernized fork of [flutter_staggered_animations](https://github.com/The-ring-io/flutter_staggered_animations) with **Dart 3+** and **Flutter 3.x** support.
+Designed for the latest Flutter and Dart SDKs (Flutter ≥3.10.0, Dart ≥3.0.0).
+
+## Showcase
+
+| ListView                  | GridView                   | Column                       |
+| ---                       | ---                        | ---                          |
+|![](https://github.com/OmerJahangir/flutter_staggered_animations_plus/blob/master/assets/listview_demo.gif?raw=true)  | ![](https://github.com/OmerJahangir/flutter_staggered_animations_plus/blob/master/assets/gridview_demo.gif?raw=true)  | ![](https://github.com/OmerJahangir/flutter_staggered_animations_plus/blob/master/assets/column_demo.gif?raw=true)  |
+
 
 ## Getting Started
 
@@ -113,6 +121,27 @@ SlideAnimation(
   ),
 )
 ```
+Animations must be direct children of `AnimationConfiguration`.
+
+
+### AnimationConfiguration  
+
+`AnimationConfiguration` is an `InheritedWidget` that shares its animation settings with its children (mainly duration and delay).
+
+#### Named constructors
+
+Depending on the scenario in which you will present your animations, you should use one of `AnimationConfiguration`'s named constructors. 
+
+- `AnimationConfiguration.synchronized` if you want to launch all children's animations at the same time.
+- `AnimationConfiguration.staggeredList` if you want to delay the animation of each child to produce a single-axis staggered animations (from top to bottom or from left to right).
+- `AnimationConfiguration.staggeredGrid` if you want to delay the animation of each child to produce a dual-axis staggered animations (from left to right and top to bottom).
+
+If you're not in the context of a `ListView` or `GridView`, an utility static method is available to help you apply staggered animations to the children of a `Row` or `Column`:
+
+- `AnimationConfiguration.toStaggeredList`
+
+> You can override `duration` and `delay` in each child Animation if needed.
+
 
 ## AnimationLimiter
 

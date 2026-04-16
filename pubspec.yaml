@@ -28,3 +28,11 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
+
+assets:
+  - path: assets/column_demo.gif
+    description: Animation on column demo
+  - path: assets/gridview_demo.gif
+    description: Animation on gridview demo
+  - path: assets/listview_demo.gif
+    description: Animation on listview demo
