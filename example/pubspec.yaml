@@ -1,0 +1,18 @@
+name: flutter_staggered_animations_plus_example
+description: Example app for flutter_staggered_animations_plus
+
+publish_to: 'none'
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_staggered_animations_plus:
+    path: ../
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
