@@ -9,7 +9,7 @@ Designed for the latest Flutter and Dart SDKs (Flutter ≥3.10.0, Dart ≥3.0.0)
 
 | ListView                  | GridView                   | Column                       |
 | ---                       | ---                        | ---                          |
-|![](https://github.com/OmerJahangir/flutter_staggered_animations_plus/blob/master/assets/listview_demo.gif?raw=true)  | ![](https://github.com/OmerJahangir/flutter_staggered_animations_plus/blob/master/assets/gridview_demo.gif?raw=true)  | ![](https://github.com/OmerJahangir/flutter_staggered_animations_plus/blob/master/assets/column_demo.gif?raw=true)  |
+|![](https://github.com/OmerJahangir/flutter_staggered_animations_plus/blob/main/assets/listview_demo.gif?raw=true)  | ![](https://github.com/OmerJahangir/flutter_staggered_animations_plus/blob/main/assets/gridview_demo.gif?raw=true)  | ![](https://github.com/OmerJahangir/flutter_staggered_animations_plus/blob/main/assets/column_demo.gif?raw=true)  |
 
 
 ## Getting Started
