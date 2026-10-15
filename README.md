@@ -20,7 +20,7 @@ Add this to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  flutter_staggered_animations_plus: ^1.0.3
+  flutter_staggered_animations_plus: ^1.0.4
 ```
 
 Then run:

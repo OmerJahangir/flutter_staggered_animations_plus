@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.4
+
+Performance improvements for smoother animations on low-end devices. Animations look exactly the same.
+
+- Fixed a leak where every animation created a new `CurvedAnimation` on each frame and never disposed it, so listeners piled up on the controller
+- Animation widgets no longer rebuild on every frame: `FadeInAnimation` now uses `FadeTransition`, and slide, scale and flip rebuild only their `Transform`
+- Configuration lookups use `getInheritedWidgetOfExactType` (constant time) instead of walking up the widget tree
+- Added widget tests covering every animation, staggering, `AnimationLimiter` and the leak fix
+
 ## 1.0.3
 
 - Fixed Flutter constraint to `>=3.10.0` (the first Flutter release shipping Dart 3.0)

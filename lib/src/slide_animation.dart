@@ -52,26 +52,22 @@ class SlideAnimation extends StatelessWidget {
   }
 
   Widget _slideAnimation(Animation<double> animation) {
-    Animation<double> offsetAnimation(
-        double offset, Animation<double> animation) {
-      return Tween<double>(begin: offset, end: 0.0).animate(
-        CurvedAnimation(
-          parent: animation,
-          curve: Interval(0.0, 1.0, curve: curve),
-        ),
-      );
-    }
+    final curved = animation.drive(CurveTween(curve: curve));
 
-    return Transform.translate(
-      offset: Offset(
-        horizontalOffset == 0.0
-            ? 0.0
-            : offsetAnimation(horizontalOffset, animation).value,
-        verticalOffset == 0.0
-            ? 0.0
-            : offsetAnimation(verticalOffset, animation).value,
-      ),
+    double offsetValue(double offset) => offset == 0.0
+        ? 0.0
+        : Tween<double>(begin: offset, end: 0.0).transform(curved.value);
+
+    return AnimatedBuilder(
+      animation: curved,
       child: child,
+      builder: (context, child) => Transform.translate(
+        offset: Offset(
+          offsetValue(horizontalOffset),
+          offsetValue(verticalOffset),
+        ),
+        child: child,
+      ),
     );
   }
 }

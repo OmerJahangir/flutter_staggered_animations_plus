@@ -43,16 +43,17 @@ class ScaleAnimation extends StatelessWidget {
   }
 
   Widget _landingAnimation(Animation<double> animation) {
-    final landingAnimation = Tween<double>(begin: scale, end: 1.0).animate(
-      CurvedAnimation(
-        parent: animation,
-        curve: Interval(0.0, 1.0, curve: curve),
-      ),
+    final landingAnimation = animation.drive(
+      Tween<double>(begin: scale, end: 1.0).chain(CurveTween(curve: curve)),
     );
 
-    return Transform.scale(
-      scale: landingAnimation.value,
+    return AnimatedBuilder(
+      animation: landingAnimation,
       child: child,
+      builder: (context, child) => Transform.scale(
+        scale: landingAnimation.value,
+        child: child,
+      ),
     );
   }
 }

@@ -35,16 +35,11 @@ class FadeInAnimation extends StatelessWidget {
     );
   }
 
+  // FadeTransition updates the opacity layer directly instead of rebuilding
+  // and repainting the child on every frame like an animated Opacity would.
   Widget _fadeInAnimation(Animation<double> animation) {
-    final opacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(
-        parent: animation,
-        curve: Interval(0.0, 1.0, curve: curve),
-      ),
-    );
-
-    return Opacity(
-      opacity: opacityAnimation.value,
+    return FadeTransition(
+      opacity: animation.drive(CurveTween(curve: curve)),
       child: child,
     );
   }

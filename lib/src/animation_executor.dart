@@ -50,12 +50,12 @@ class _AnimationExecutorState extends State<AnimationExecutor>
     }
   }
 
+  // The builder runs once rather than on every tick: the widgets it returns
+  // listen to the controller themselves, so only the part that actually
+  // changes is updated each frame.
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      builder: _buildAnimation,
-      animation: _animationController,
-    );
+    return widget.builder(context, _animationController);
   }
 
   @override
@@ -63,9 +63,5 @@ class _AnimationExecutorState extends State<AnimationExecutor>
     _timer?.cancel();
     _animationController.dispose();
     super.dispose();
-  }
-
-  Widget _buildAnimation(BuildContext context, Widget? child) {
-    return widget.builder(context, _animationController);
   }
 }

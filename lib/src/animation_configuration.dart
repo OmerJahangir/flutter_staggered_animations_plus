@@ -142,6 +142,6 @@ class AnimationConfiguration extends InheritedWidget {
 
   /// Finds the nearest [AnimationConfiguration] ancestor widget.
   static AnimationConfiguration? of(BuildContext context) {
-    return context.findAncestorWidgetOfExactType<AnimationConfiguration>();
+    return context.getInheritedWidgetOfExactType<AnimationConfiguration>();
   }
 }
