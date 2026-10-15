@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_staggered_animations_plus/flutter_staggered_animations_plus.dart';
 
 import '../widgets/auto_refresh.dart';
@@ -47,9 +47,7 @@ class _CardColumnScreenState extends State<CardColumnScreen> {
                               showIndex: false,
                             ),
                           ),
-                          SizedBox(
-                            width: 10,
-                          ),
+                          SizedBox(width: 10),
                           Flexible(
                             child: EmptyCard(
                               height: 50.0,
@@ -57,9 +55,7 @@ class _CardColumnScreenState extends State<CardColumnScreen> {
                               showIndex: false,
                             ),
                           ),
-                          SizedBox(
-                            width: 10,
-                          ),
+                          SizedBox(width: 10),
                           Flexible(
                             child: EmptyCard(
                               height: 50.0,
@@ -79,15 +75,14 @@ class _CardColumnScreenState extends State<CardColumnScreen> {
                             showIndex: false,
                           ),
                         ),
-                        SizedBox(
-                          width: 10,
-                        ),
+                        SizedBox(width: 10),
                         Flexible(
-                            child: EmptyCard(
-                          height: 150.0,
-                          layoutType: CardLayoutType.compact,
-                          showIndex: false,
-                        )),
+                          child: EmptyCard(
+                            height: 150.0,
+                            layoutType: CardLayoutType.compact,
+                            showIndex: false,
+                          ),
+                        ),
                       ],
                     ),
                     Padding(
@@ -101,9 +96,7 @@ class _CardColumnScreenState extends State<CardColumnScreen> {
                               showIndex: false,
                             ),
                           ),
-                          SizedBox(
-                            width: 10,
-                          ),
+                          SizedBox(width: 10),
                           Flexible(
                             child: EmptyCard(
                               height: 50.0,
@@ -111,15 +104,14 @@ class _CardColumnScreenState extends State<CardColumnScreen> {
                               showIndex: false,
                             ),
                           ),
-                          SizedBox(
-                            width: 10,
-                          ),
+                          SizedBox(width: 10),
                           Flexible(
-                              child: EmptyCard(
-                            height: 50.0,
-                            layoutType: CardLayoutType.compact,
-                            showIndex: false,
-                          )),
+                            child: EmptyCard(
+                              height: 50.0,
+                              layoutType: CardLayoutType.compact,
+                              showIndex: false,
+                            ),
+                          ),
                         ],
                       ),
                     ),

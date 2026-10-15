@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_staggered_animations_plus/flutter_staggered_animations_plus.dart';
 
 import '../widgets/auto_refresh.dart';
@@ -25,25 +25,22 @@ class _CardGridScreenState extends State<CardGridScreen> {
               childAspectRatio: 1.0,
               padding: const EdgeInsets.all(8.0),
               crossAxisCount: columnCount,
-              children: List.generate(
-                100,
-                (int index) {
-                  return AnimationConfiguration.staggeredGrid(
-                    columnCount: columnCount,
-                    position: index,
-                    duration: const Duration(milliseconds: 375),
-                    child: ScaleAnimation(
-                      scale: 0.5,
-                      child: FadeInAnimation(
-                        child: EmptyCard(
-                          index: index,
-                          layoutType: CardLayoutType.grid,
-                        ),
+              children: List.generate(100, (int index) {
+                return AnimationConfiguration.staggeredGrid(
+                  columnCount: columnCount,
+                  position: index,
+                  duration: const Duration(milliseconds: 375),
+                  child: ScaleAnimation(
+                    scale: 0.5,
+                    child: FadeInAnimation(
+                      child: EmptyCard(
+                        index: index,
+                        layoutType: CardLayoutType.grid,
                       ),
                     ),
-                  );
-                },
-              ),
+                  ),
+                );
+              }),
             ),
           ),
         ),

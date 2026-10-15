@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_staggered_animations_plus_example/screens/card_column_screen.dart';
 import 'package:flutter_staggered_animations_plus_example/screens/card_grid_screen.dart';
 import 'package:flutter_staggered_animations_plus_example/screens/card_list_screen.dart';

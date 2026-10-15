@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.3
+
+- Fixed Flutter constraint to `>=3.10.0` (the first Flutter release shipping Dart 3.0)
+- Verified with the latest stable Flutter 3.47 / Dart 3.13
+- Excluded build and platform directories from analysis
+- Migrated the example app to the standalone `material_ui` package
+- Updated the example Android build to AGP 9.1, Kotlin 2.4 and Gradle 9.3.1
+- Refreshed example dependencies
+
 ## 1.0.2
 
 - Changed the minimum sdk version to 3.0.0 support older projects

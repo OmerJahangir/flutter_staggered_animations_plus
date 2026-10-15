@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 // class EmptyCard extends StatelessWidget {
 //   final double? width;
@@ -173,11 +173,7 @@ import 'package:flutter/material.dart';
   }
 }
  */
-enum CardLayoutType {
-  list,
-  grid,
-  compact,
-}
+enum CardLayoutType { list, grid, compact }
 
 class EmptyCard extends StatelessWidget {
   final double? width;
@@ -266,9 +262,7 @@ class EmptyCard extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
           ),
-          child: const Center(
-            child: Icon(Icons.animation, size: 40),
-          ),
+          child: const Center(child: Icon(Icons.animation, size: 40)),
         ),
       ),
     );
@@ -323,9 +317,6 @@ class EmptyCard extends StatelessWidget {
       );
     }
 
-    return Icon(
-      Icons.animation,
-      color: Colors.deepPurple.shade400,
-    );
+    return Icon(Icons.animation, color: Colors.deepPurple.shade400);
   }
 }
