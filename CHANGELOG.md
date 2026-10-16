@@ -2,7 +2,9 @@
 
 ## 1.0.4
 
-Performance improvements for smoother animations on low-end devices. Animations look exactly the same.
+Performance improvements that cut per-frame animation work. Animations look exactly the same.
+
+Measured against 1.0.3 (see the README's Benchmarks section): 0 instead of 520 `CurvedAnimation` objects for 10 animated list items, half the widget rebuilds per frame, 4% lower average and 10% lower 90th-percentile UI build time on a Pixel 8.
 
 - Fixed a leak where every animation created a new `CurvedAnimation` on each frame and never disposed it, so listeners piled up on the controller
 - Animation widgets no longer rebuild on every frame: `FadeInAnimation` now uses `FadeTransition`, and slide, scale and flip rebuild only their `Transform`

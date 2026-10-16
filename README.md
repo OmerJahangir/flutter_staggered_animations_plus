@@ -7,7 +7,7 @@ A modernized fork of [flutter_staggered_animations](https://github.com/The-ring-
 ## Features
 
 - **Same API as the original** — switching over only needs a new import
-- **Smooth on low-end devices** — no animation objects are created per frame, and your widgets are never rebuilt while animating
+- **Lightweight animations** — no animation objects created per frame, half the widget rebuilds, and up to 10% less UI-thread build time than 1.0.3 ([benchmarks](#benchmarks))
 - **Works with any design system** — depends only on Flutter's widgets layer, so it works with `package:flutter/material.dart`, the standalone [`material_ui`](https://pub.dev/packages/material_ui) and [`cupertino_ui`](https://pub.dev/packages/cupertino_ui) packages, or no design system at all
 - **All platforms** — Android, iOS, web (including WebAssembly), Windows, macOS and Linux
 - **No dependencies** beyond the Flutter SDK
@@ -157,7 +157,7 @@ Wrap your scrollable list with `AnimationLimiter` to prevent animations from run
 
 ## Performance
 
-The animations are built to stay smooth on older and low-spec devices:
+The animations are built to keep per-frame work low, which matters most on older and low-spec devices:
 
 - No animation objects are created per frame, so listeners never pile up on the animation controller.
 - Your child widgets are built once and are never rebuilt while animating.
@@ -165,6 +165,20 @@ The animations are built to stay smooth on older and low-spec devices:
 - `SlideAnimation`, `ScaleAnimation` and `FlipAnimation` rebuild only a single `Transform` per frame.
 
 For the smoothest lists, wrap scrollable content in `AnimationLimiter` so items scrolled into view later don't animate.
+
+### Benchmarks
+
+Version 1.0.4 compared with 1.0.3, using the example app's list, grid and column demos:
+
+| Metric | 1.0.3 | 1.0.4 | Change |
+|---|---|---|---|
+| `CurvedAnimation` objects created (10 list items, slide + fade) | 520 | 0 | **−100%** |
+| Widgets rebuilt per frame for each slide + fade item | 2 | 1 | **−50%** |
+| Average UI build time per frame | 1.92 ms | 1.85 ms | **−4%** |
+| UI build time, 90th percentile | 3.44 ms | 3.11 ms | **−10%** |
+| Visual output (1,260 sampled frames) | — | identical | No change |
+
+Frame timings were measured on a Pixel 8 (Android 17) in profile mode with Flutter 3.47: 4 alternating runs per version of about 4,760 frames each. Raster (GPU) time is unchanged; the savings are on the UI thread, so they make up a bigger share of each frame on slower CPUs.
 
 ## Migrating from flutter_staggered_animations
 
