@@ -1,12 +1,19 @@
 name: flutter_staggered_animations_plus
 description: >
-  Easily add staggered animations to your ListView, GridView, Column and Row
-  children. A modernized fork of flutter_staggered_animations with Dart 3+ and
-  Flutter 3.x support.
+  Easily add staggered animations to ListView, GridView, Column and Row
+  children. A Dart 3 fork of flutter_staggered_animations, smooth on low-end
+  devices.
 version: 1.0.4
 
 repository: https://github.com/OmerJahangir/flutter_staggered_animations_plus
 issue_tracker: https://github.com/OmerJahangir/flutter_staggered_animations_plus/issues
+
+topics:
+  - animation
+  - listview
+  - gridview
+  - widget
+  - ui
 
 environment:
   sdk: ">=3.0.0 <4.0.0"

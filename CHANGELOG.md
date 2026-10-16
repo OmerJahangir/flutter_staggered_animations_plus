@@ -8,6 +8,8 @@ Performance improvements for smoother animations on low-end devices. Animations 
 - Animation widgets no longer rebuild on every frame: `FadeInAnimation` now uses `FadeTransition`, and slide, scale and flip rebuild only their `Transform`
 - Configuration lookups use `getInheritedWidgetOfExactType` (constant time) instead of walking up the widget tree
 - Added widget tests covering every animation, staggering, `AnimationLimiter` and the leak fix
+- README: added Features, Performance and migration sections, and fixed the Material Design link
+- Added pub.dev topics
 
 ## 1.0.3
 

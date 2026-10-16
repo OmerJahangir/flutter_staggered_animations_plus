@@ -1,9 +1,17 @@
 # flutter_staggered_animations_plus
 
-Easily add staggered animations to your `ListView`, `GridView`, `Column` and `Row` children as shown in [Material Design guidelines](https://material.io/design/motion/customization.html#sequencing).
+Easily add staggered animations to your `ListView`, `GridView`, `Column` and `Row` children as shown in [Material Design guidelines](https://m2.material.io/design/motion/customization.html#sequencing).
 
 A modernized fork of [flutter_staggered_animations](https://github.com/The-ring-io/flutter_staggered_animations) with **Dart 3+** and **Flutter 3.x** support.
-Designed for the latest Flutter and Dart SDKs (Flutter ≥3.10.0, Dart ≥3.0.0).
+
+## Features
+
+- **Same API as the original** — switching over only needs a new import
+- **Smooth on low-end devices** — no animation objects are created per frame, and your widgets are never rebuilt while animating
+- **Works with any design system** — depends only on Flutter's widgets layer, so it works with `package:flutter/material.dart`, the standalone [`material_ui`](https://pub.dev/packages/material_ui) and [`cupertino_ui`](https://pub.dev/packages/cupertino_ui) packages, or no design system at all
+- **All platforms** — Android, iOS, web (including WebAssembly), Windows, macOS and Linux
+- **No dependencies** beyond the Flutter SDK
+- Supports Flutter ≥3.10.0 and Dart ≥3.0.0, tested on the latest stable Flutter
 
 ## Showcase
 
@@ -121,7 +129,7 @@ SlideAnimation(
   ),
 )
 ```
-Animations must be direct children of `AnimationConfiguration`.
+Every animation must have an `AnimationConfiguration` above it in the widget tree.
 
 
 ### AnimationConfiguration  
@@ -146,6 +154,36 @@ If you're not in the context of a `ListView` or `GridView`, an utility static me
 ## AnimationLimiter
 
 Wrap your scrollable list with `AnimationLimiter` to prevent animations from running on items that have already appeared after the initial frame build. This ensures animations only play on items visible during the first render.
+
+## Performance
+
+The animations are built to stay smooth on older and low-spec devices:
+
+- No animation objects are created per frame, so listeners never pile up on the animation controller.
+- Your child widgets are built once and are never rebuilt while animating.
+- `FadeInAnimation` uses `FadeTransition`, which updates opacity without rebuilding or repainting the child.
+- `SlideAnimation`, `ScaleAnimation` and `FlipAnimation` rebuild only a single `Transform` per frame.
+
+For the smoothest lists, wrap scrollable content in `AnimationLimiter` so items scrolled into view later don't animate.
+
+## Migrating from flutter_staggered_animations
+
+The public API is identical. Swap the dependency in `pubspec.yaml`:
+
+```yaml
+dependencies:
+  flutter_staggered_animations_plus: ^1.0.4
+```
+
+Then update your imports:
+
+```dart
+// Before
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+
+// After
+import 'package:flutter_staggered_animations_plus/flutter_staggered_animations_plus.dart';
+```
 
 ## Credits
 
